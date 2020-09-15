@@ -1,0 +1,20 @@
+name: Add File to Bucket
+on: push
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    
+    steps:
+   - uses: actions/checkout@master
+   
+   - name: Upload file to bucket
+   uses: sre-rwa/task1@master
+   with:
+     args: --acl public-read
+   env:
+    FILE: ./index.html
+    AWS_REGION: 'us-east-2'
+    AWS_BUCKET: 'crsvr1'
+    AWS_ACCESS_KEY_ID: 'AKIAW4P73ANJHTQI5LON'
+    AWS_SECRET_ACCESS_KEY: '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'
